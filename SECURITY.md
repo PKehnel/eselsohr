@@ -1,10 +1,10 @@
 # Security
 
-Report a suspected vulnerability privately through this repository's GitHub
-Security tab once private vulnerability reporting is enabled. Do not put keys,
-real note content, member details or exploit instructions for a live instance
-in a public issue. If private reporting is unavailable, wait for a private
-channel from the maintainer rather than posting sensitive details publicly.
+This repository is private. Report suspected vulnerabilities through an existing
+private maintainer channel. GitHub's private vulnerability-reporting feature is
+only available for public repositories. Never put keys, real note content or
+member details in an issue, even here; automated issues contain check summaries
+and run links only.
 
 ## Access and credentials
 
@@ -19,8 +19,11 @@ See [Setup](docs/SETUP.md).
 The Dependency audit workflow scans the full locked npm graph, including
 development and transitive packages, every day at 07:23 UTC. It also runs on
 dependency/scanner changes and can be started manually. It fails on high or
-critical findings and on failed or incomplete scans. JSON reports are retained
-as workflow artifacts for 30 days. Dependabot proposes npm and Actions updates
+critical findings and on failed or incomplete scans. Every reported severity
+opens or updates one private dependency-security issue; scan failures also open
+it. A clean scan closes it, and later findings reopen the same issue. Maintainer
+text outside the marked bot section and issue comments are preserved. JSON
+reports are retained as workflow artifacts for 30 days. Dependabot proposes npm and Actions updates
 on weekdays; its schedule does not replace the seven-day audit. Nothing merges
 or deploys automatically.
 
@@ -31,14 +34,28 @@ verification in a dependency PR or issue. Fix high/critical findings before
 merging or publishing. A scan error needs a successful rerun, never a waiver
 as if it were a clean result. There are no standing advisory exceptions.
 
-On repository setup, enable Actions failure notifications and private vulnerability
-reporting, choose the workflows as required PR checks, and review a manual audit
-and its report. Verify the first scheduled run and delivery of a failure notification
-before claiming monitoring is active. Scheduled jobs run from the default branch;
-GitHub can delay schedules or disable them after inactivity in a public repository.
-Local checks cannot prove hosted scheduling or notification delivery.
+Free Dependabot alerts appear in the repository's Security tab. No email action
+or email service is configured. Personal notification preferences still govern
+GitHub's own Dependabot, Actions and issue emails; disable email/digests there
+if unwanted. The repository stays private on GitHub Free. Checks run normally;
+required protected-branch checks are unavailable on that plan.
+
+Only trusted default-branch runs can write issues. Audit and scanner jobs retain
+read-only permissions; separate reporting jobs receive only contents-read and
+issues-write permissions. Pull-request jobs cannot write issues. Reporting uses
+the built-in expiring GitHub token, with no stored account token or third-party
+notification service. Repeated runs update one bot-owned issue per check;
+older runs cannot overwrite a newer result.
+
+Use the Dependency audit workflow's manual `exercise_issue` input to verify a
+clearly marked synthetic issue's create/update/close/reopen lifecycle. It finishes
+closed and never simulates a real vulnerability. Verify the first scheduled run
+separately; successful manual runs do not establish hosted scheduling.
 
 The CI workflow also scans the current source files with pinned Gitleaks 8.30.1.
+Scanner failures open or update a separate private issue containing only a run
+link and review instructions; a passing scan closes it. Detected values never
+enter that issue. This scan runs after a push and does not block the push itself.
 `npm run scan:secrets` downloads and checksums the official Linux x64 binary.
 Other platforms can install that version and run `gitleaks dir --redact .`.
 Scan imported Git history separately before adding it; the initial publication

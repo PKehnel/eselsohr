@@ -23,13 +23,13 @@
     },
     {
       "path": ".github/workflows/checks.yml",
-      "bytes": 1662,
-      "sha256": "7a6b15a8a002dd41245df4869981897c449efdbf04d7710c00fa966935a75cb2"
+      "bytes": 2535,
+      "sha256": "acb86d84f207595bfca4a1e3297e3bf483349667ad63d276af88c91902f62c93"
     },
     {
       "path": ".github/workflows/dependency-audit.yml",
-      "bytes": 1069,
-      "sha256": "2d9dd26e2d0cf6966746a70a7e5ef0cae6ef0640fa4ab1b2c0b28601327b1b53"
+      "bytes": 2764,
+      "sha256": "78e529f89f4074c4c66badbfd317849d1e257663efed516b527dacef163479b3"
     },
     {
       "path": ".gitignore",
@@ -73,8 +73,8 @@
     },
     {
       "path": "SECURITY.md",
-      "bytes": 3000,
-      "sha256": "f2f6e80cd9ac068cb7f1cc9a36d8766ba3d6c9cbd7ea4f2e5c5d06381185d8b6"
+      "bytes": 4092,
+      "sha256": "983929ce697b08c1617c853affe3dc719a3d89375190ff39d2099bf6689c712c"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -402,6 +402,11 @@
       "sha256": "dda9efd40caa926b4f48a96cecb7984feb2ac2c8454287cd80ced8d2f9ba2cec"
     },
     {
+      "path": "tests/security-issue.test.mjs",
+      "bytes": 3730,
+      "sha256": "f07b1c3447a090d4604edc7aac766883653161605c28f9c04504ccf6cc7c84c7"
+    },
+    {
       "path": "tests/sharing.mjs",
       "bytes": 17831,
       "sha256": "a1b69e61812746a1495a16d638d9eff224b68bb28d8a2ae6b2f7067a875bf82b"
@@ -433,8 +438,8 @@
     },
     {
       "path": "tools/audit.mjs",
-      "bytes": 2239,
-      "sha256": "9a0f2f28faea0f9dad5132b8f252f5e02e4e6cb3c699c18ad410ec23f30902ec"
+      "bytes": 2371,
+      "sha256": "7ebc3df9dfc791f7ce622a9291e71bffafcd9ee09155adc8a7c0d414d5056602"
     },
     {
       "path": "tools/context.mjs",
@@ -470,6 +475,11 @@
       "path": "tools/secret-scan.mjs",
       "bytes": 1794,
       "sha256": "3abe830056418b4d6b17e1d54296ef83fc8b5efdde60f3617e63fdbfd7ea3034"
+    },
+    {
+      "path": "tools/security-issue.mjs",
+      "bytes": 5838,
+      "sha256": "5ad1f60c96f1e2ef58463f1f3138fa56ec526686903a2bc7daaedd11d3acd22a"
     },
     {
       "path": "tools/seed-emulator.mjs",

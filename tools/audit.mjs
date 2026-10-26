@@ -22,6 +22,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   try {
     if (result.error) throw result.error;
     const { counts, blocked } = auditStatus(JSON.parse(result.stdout), result.status);
+    if (process.env.GITHUB_OUTPUT) await writeFile(process.env.GITHUB_OUTPUT, `counts=${JSON.stringify(counts)}\n`, { flag: 'a' });
     console.log(`Dependency audit: ${JSON.stringify(counts)}. Report: test-artifacts/security/npm-audit.json`);
     if (counts.info + counts.low + counts.moderate > 0) console.log('Lower severity findings require a recorded maintainer decision; see SECURITY.md.');
     if (blocked) process.exitCode = 1;
