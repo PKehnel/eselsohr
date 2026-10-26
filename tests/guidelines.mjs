@@ -56,6 +56,7 @@ test('Back retains search, scroll, focused note and Bin context, including brows
   await page.getByRole('button', { name: 'Actions: Review note primary', exact: true }).click();
   await page.getByRole('button', { name: 'Move to bin', exact: true }).click(); await saved(page);
   await page.getByRole('button', { name: 'Bin', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Bin', exact: true })).toBeVisible();
   await page.getByLabel('Search notes').fill('primary'); await card().click();
   await expect(page.getByRole('button', { name: 'Restore', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Back', exact: true }).click();
