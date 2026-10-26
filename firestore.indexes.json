@@ -1,0 +1,17 @@
+{
+  "indexes": [],
+  "fieldOverrides": [
+    { "collectionGroup": "notes", "fieldPath": "audience", "indexes": [
+      { "order": "ASCENDING", "queryScope": "COLLECTION" },
+      { "order": "DESCENDING", "queryScope": "COLLECTION" },
+      { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+    ] },
+    { "collectionGroup": "notes", "fieldPath": "sharedWith", "indexes": [
+      { "arrayConfig": "CONTAINS", "queryScope": "COLLECTION" },
+      { "arrayConfig": "CONTAINS", "queryScope": "COLLECTION_GROUP" }
+    ] },
+    { "collectionGroup": "notes", "fieldPath": "body", "indexes": [] },
+    { "collectionGroup": "notes", "fieldPath": "title", "indexes": [] },
+    { "collectionGroup": "items", "fieldPath": "text", "indexes": [] }
+  ]
+}

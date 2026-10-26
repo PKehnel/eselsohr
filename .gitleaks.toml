@@ -1,0 +1,8 @@
+title = "Eselsohr source scan"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Installed dependencies and generated files; scan the source package instead"
+paths = ['''(^|/)(node_modules|dist|test-artifacts|\.git)/''']

@@ -1,0 +1,38 @@
+[
+  {
+    "path": "icons/icon-192.png",
+    "sha256": "510a1a78f5c2c69a4223ee1faf68b67d9783ea8cc0658a6a29e2483ebd3547cb"
+  },
+  {
+    "path": "icons/icon-512.png",
+    "sha256": "dbc0196aca44afbb8978745d41020d7b161b2fb02e821794bda2da74b5b6c93c"
+  },
+  {
+    "path": "themes/donkey-ui/bin.webp",
+    "sha256": "86e7484ec540f2f2c0bf0893c3a590cba3c0d94a54ee51796101e51bd126bf4d"
+  },
+  {
+    "path": "themes/donkey-ui/offline.webp",
+    "sha256": "061001b61b0ce547953d7818b4838a9410a9d5233c1736be487bb0fc091536e5"
+  },
+  {
+    "path": "themes/donkey-ui/online-sage.webp",
+    "sha256": "3f88c8aec94cf773d8ec8bf36cadc97e28a68c4c791e9821d1fcc0cdd4c67b65"
+  },
+  {
+    "path": "themes/donkey-ui/people.webp",
+    "sha256": "97c1d9e2ce9428103031a7728d26a327f4d8d8ab5ab41fd4cd039e1022b56b75"
+  },
+  {
+    "path": "themes/donkey-v1/completion-pounce.webp",
+    "sha256": "f7d856d1ed58026a3e990d10f995ac038e9e584129cc5d3268ec187c25815dd2"
+  },
+  {
+    "path": "themes/donkey-v1/corner-loaf.webp",
+    "sha256": "99f19920f4d554c5fba089911fed7061695aed62e4e9265dcabc65319d9cbd61"
+  },
+  {
+    "path": "themes/donkey-v1/idle-blink.webp",
+    "sha256": "c290ecdf3aa8b272e3e3c19a89891609ba388ef89fe13db666372c4266ced368"
+  }
+]

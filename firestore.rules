@@ -1,0 +1,93 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function activeMember() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/members/$(request.auth.uid))
+        && get(/databases/$(database)/documents/members/$(request.auth.uid)).data.active == true;
+    }
+    function validNote(data) {
+      return data.keys().hasAll(['kind', 'title', 'body', 'pinned', 'state', 'createdBy', 'createdAt', 'updatedBy', 'updatedAt'])
+        && data.keys().hasOnly(['kind', 'title', 'body', 'pinned', 'state', 'createdBy', 'createdAt', 'updatedBy', 'updatedAt', 'audience', 'sharedWith'])
+        && data.kind in ['text', 'checklist']
+        && data.title is string && data.title.size() <= 120
+        && data.body is string && data.body.size() <= 40000
+        && (data.kind == 'text' || data.body == '')
+        && data.pinned is bool
+        && data.state in ['active', 'archived', 'trash']
+        && data.createdBy is string && data.createdAt is timestamp
+        && data.updatedBy == request.auth.uid && data.updatedAt == request.time;
+    }
+    function validItem(data) {
+      return data.keys().hasAll(['text', 'checked', 'createdBy', 'createdAt', 'updatedBy', 'updatedAt'])
+        && data.keys().hasOnly(['text', 'checked', 'indented', 'sortAt', 'createdBy', 'createdAt', 'updatedBy', 'updatedAt'])
+        && data.text is string && data.text.size() <= 1000
+        && data.checked is bool
+        && (!('sortAt' in data) || data.sortAt is timestamp)
+        && (!('indented' in data) || data.indented is bool
+          || (data.indented is int && data.indented >= 0 && data.indented <= 2))
+        && data.createdBy is string && data.createdAt is timestamp
+        && data.updatedBy == request.auth.uid && data.updatedAt == request.time;
+    }
+    function canAccessNotes(parent, owner) {
+      return activeMember() && ((parent == 'notebooks' && owner == 'home') || parent == 'members');
+    }
+    function sharedAccess(data) {
+      return data.get('audience', 'private') == 'everyone' || request.auth.uid in data.get('sharedWith', []);
+    }
+    function noteAccess(parent, owner, data) {
+      return canAccessNotes(parent, owner) && ((parent == 'members' && owner == request.auth.uid) || sharedAccess(data));
+    }
+    function validSharing(parent, data) {
+      return (!data.keys().hasAny(['audience', 'sharedWith']) && parent == 'members')
+        || (data.audience in ['private', 'everyone', 'selected']
+          && data.get('sharedWith', []) is list
+          && data.get('sharedWith', []).size() <= 100
+          && data.get('sharedWith', []).toSet().size() == data.get('sharedWith', []).size()
+          && (data.audience == 'everyone'
+            ? data.get('sharedWith', []).size() == 0
+            : data.createdBy in data.sharedWith && (data.audience != 'private' || data.sharedWith.size() == 1)));
+    }
+    function checklist(parent, owner, noteId) {
+      return exists(/databases/$(database)/documents/$(parent)/$(owner)/notes/$(noteId))
+        && get(/databases/$(database)/documents/$(parent)/$(owner)/notes/$(noteId)).data.kind == 'checklist'
+        && noteAccess(parent, owner, get(/databases/$(database)/documents/$(parent)/$(owner)/notes/$(noteId)).data);
+    }
+    match /members/{uid} {
+      // A user may read their own inactive/missing record to learn access status.
+      allow get: if signedIn() && (request.auth.uid == uid || activeMember());
+      allow list: if activeMember();
+      allow write: if false;
+    }
+    // The shared notebook and the signed-in member's private notebook only.
+    match /{parent}/{owner}/notes/{noteId} {
+        allow read: if noteAccess(parent, owner, resource.data);
+        allow create: if canAccessNotes(parent, owner) && validNote(request.resource.data)
+          && (parent != 'members' || owner == request.auth.uid)
+          && validSharing(parent, request.resource.data)
+          && request.resource.data.createdBy == request.auth.uid
+          && request.resource.data.createdAt == request.time;
+        allow update: if noteAccess(parent, owner, resource.data)
+          && validNote(request.resource.data) && validSharing(parent, request.resource.data)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['title', 'body', 'pinned', 'state', 'updatedBy', 'updatedAt', 'audience', 'sharedWith'])
+          && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['audience', 'sharedWith']) || resource.data.createdBy == request.auth.uid);
+        allow delete: if false;
+        match /items/{itemId} {
+          allow read: if canAccessNotes(parent, owner) && checklist(parent, owner, noteId);
+          allow create: if canAccessNotes(parent, owner) && checklist(parent, owner, noteId) && validItem(request.resource.data)
+            && request.resource.data.createdBy == request.auth.uid
+            && request.resource.data.createdAt == request.time;
+          allow update: if canAccessNotes(parent, owner) && checklist(parent, owner, noteId) && validItem(request.resource.data)
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['text', 'checked', 'indented', 'updatedBy', 'updatedAt']);
+          allow delete: if canAccessNotes(parent, owner) && checklist(parent, owner, noteId);
+        }
+    }
+    // Only these explicit sharing predicates authorize collection-group lists.
+    // Writes remain confined to the two validated namespaces above.
+    match /{path=**}/notes/{noteId} {
+      allow list: if activeMember() && sharedAccess(resource.data);
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

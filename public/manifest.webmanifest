@@ -1,0 +1,26 @@
+{
+  "id": "/",
+  "name": "Eselsohr",
+  "short_name": "Eselsohr",
+  "description": "A small shared notebook.",
+  "lang": "en",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#e7ede7",
+  "theme_color": "#e7ede7",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

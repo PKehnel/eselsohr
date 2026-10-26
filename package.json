@@ -1,0 +1,64 @@
+{
+  "name": "eselsohr",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^24.15.0 || >=26.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "dev:emulator": "vite --mode emulator --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "emulators": "firebase emulators:start --only auth,firestore --project demo-eselsohr",
+    "admin": "node tools/admin.mjs",
+    "seed:emulator": "node tools/seed-emulator.mjs",
+    "test": "node --experimental-transform-types --test tests/*.test.mjs",
+    "test:rules": "node tools/test.mjs rules",
+    "test:acceptance": "node tools/test.mjs acceptance",
+    "test:tabs": "node tools/test.mjs tabs",
+    "test:sharing": "node tools/test.mjs sharing",
+    "test:typing": "node tools/test.mjs typing",
+    "test:guidelines": "node tools/test.mjs guidelines",
+    "test:ui": "node tools/test.mjs ui",
+    "test:artwork": "node tools/test.mjs artwork",
+    "test:release": "node tools/test.mjs release",
+    "release": "node tools/release.mjs",
+    "audit:dependencies": "node tools/audit.mjs",
+    "scan:secrets": "node tools/secret-scan.mjs"
+  },
+  "dependencies": {
+    "firebase": "13.1.0"
+  },
+  "devDependencies": {
+    "firebase-admin": "14.5.0",
+    "firebase-tools": "15.34.1",
+    "playwright": "1.64.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  },
+  "overrides": {
+    "@firebase/firestore": {
+      "@grpc/grpc-js": "1.14.6"
+    },
+    "firebase-tools": {
+      "@google-cloud/pubsub": {
+        "@opentelemetry/core": "2.8.0"
+      },
+      "gaxios@6.7.1": {
+        "uuid": "11.1.1"
+      }
+    }
+  },
+  "allowScripts": {
+    "re2@1.27.0": true
+  },
+  "description": "A small shared notebook with private-first notes and offline support.",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "author": "PKehnel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PKehnel/eselsohr.git"
+  }
+}
