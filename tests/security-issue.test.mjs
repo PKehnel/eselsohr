@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { dependencyMessage, syncSecurityIssue } from '../tools/security-issue.mjs';
+import { createIssueClient, dependencyMessage, syncSecurityIssue } from '../tools/security-issue.mjs';
 
 function fixture() {
   const issues = [], writes = [];
@@ -59,4 +59,25 @@ test('all dependency findings and failed or incomplete audits require an issue',
   }
   assert.equal(dependencyMessage('failure', '').state, 'open');
   for (const value of ['', '{}', JSON.stringify({ ...clean, total: 1 })]) assert.equal(dependencyMessage('success', value).state, 'open');
+});
+
+test('stale issue-list responses cannot create duplicates during a notification exercise', async () => {
+  const created = [], reads = [];
+  const api = createIssueClient(async (method, path, body) => {
+    if (method === 'GET') { reads.push(path); return []; }
+    if (method === 'POST') {
+      const issue = { ...body, number: created.length + 1, state: 'open', user: { login: 'github-actions[bot]' } };
+      created.push(issue); return structuredClone(issue);
+    }
+    const issue = created.find(item => path === `issues/${item.number}`);
+    Object.assign(issue, body); return structuredClone(issue);
+  });
+  const actions = [];
+  for (const state of ['open', 'open', 'closed', 'open', 'closed']) {
+    actions.push(await syncSecurityIssue(api, 'verification', state, `Stage ${actions.length}`, '30'));
+  }
+  assert.equal(created.length, 1); assert.equal(reads.length, 1);
+  assert.deepEqual(actions.map(item => item.action), ['created', 'updated', 'closed', 'reopened', 'closed']);
+  assert.ok(actions.every(item => item.number === created[0].number));
+  assert.equal(created[0].state, 'closed');
 });

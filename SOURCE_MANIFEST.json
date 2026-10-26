@@ -403,8 +403,8 @@
     },
     {
       "path": "tests/security-issue.test.mjs",
-      "bytes": 3730,
-      "sha256": "f07b1c3447a090d4604edc7aac766883653161605c28f9c04504ccf6cc7c84c7"
+      "bytes": 4859,
+      "sha256": "420480ca70028efed9d1510b10cca332652842bc511cce6abf1f18faa1ceed8c"
     },
     {
       "path": "tests/sharing.mjs",
@@ -478,8 +478,8 @@
     },
     {
       "path": "tools/security-issue.mjs",
-      "bytes": 5838,
-      "sha256": "5ad1f60c96f1e2ef58463f1f3138fa56ec526686903a2bc7daaedd11d3acd22a"
+      "bytes": 6291,
+      "sha256": "3289e3533a190cdccdacb24b41f1cc770ab600a057e2288af335507ca5543326"
     },
     {
       "path": "tools/seed-emulator.mjs",

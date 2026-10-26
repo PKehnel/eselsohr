@@ -42,30 +42,45 @@ export function dependencyMessage(result, rawCounts) {
   }
 }
 
+export function createIssueClient(request) {
+  let issues;
+  return {
+    list: async () => {
+      if (issues) return issues;
+      const items = [];
+      for (let page = 1; ; page++) {
+        const batch = await request('GET', `issues?state=all&per_page=100&page=${page}`);
+        items.push(...batch);
+        if (batch.length < 100) { issues = items; return issues; }
+      }
+    },
+    create: async body => {
+      const issue = await request('POST', 'issues', body);
+      issues?.push(issue);
+      return issue;
+    },
+    update: async (number, body) => {
+      const issue = await request('PATCH', `issues/${number}`, body);
+      const index = issues?.findIndex(item => item.number === number) ?? -1;
+      if (index >= 0) issues[index] = issue;
+      return issue;
+    },
+  };
+}
+
 async function main() {
   const { GITHUB_REPOSITORY: repository, GITHUB_RUN_ID: runId, GH_TOKEN: token, SECURITY_CHECK: check, SECURITY_RESULT: result, SECURITY_COUNTS: counts } = process.env;
   if (!repository || !/^\d+$/.test(runId ?? '') || !token || !['dependencies', 'secrets'].includes(check)) throw new Error('Missing GitHub security-check context.');
   const runUrl = `https://github.com/${repository}/actions/runs/${runId}`;
   const request = async (method, path, body) => {
     const response = await fetch(`https://api.github.com/repos/${repository}/${path}`, {
-      method, headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' },
+      method, headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' },
       ...(body ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(30000),
     });
     if (!response.ok) throw new Error(`GitHub issue request failed: ${method} ${path} (HTTP ${response.status}).`);
     return response.json();
   };
-  const api = {
-    list: async () => {
-      const items = [];
-      for (let page = 1; ; page++) {
-        const batch = await request('GET', `issues?state=all&per_page=100&page=${page}`);
-        items.push(...batch);
-        if (batch.length < 100) return items;
-      }
-    },
-    create: body => request('POST', 'issues', body),
-    update: (number, body) => request('PATCH', `issues/${number}`, body),
-  };
+  const api = createIssueClient(request);
   const receipts = [];
   if (process.env.SECURITY_ISSUE_EXERCISE === 'true') {
     for (const [state, stage] of [['open', 'create/reopen'], ['open', 'update'], ['closed', 'close'], ['open', 'reopen'], ['closed', 'finish']]) {
