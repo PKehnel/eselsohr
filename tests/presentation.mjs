@@ -3,7 +3,7 @@ import { expect } from 'playwright/test';
 import { test } from './fixtures.mjs';
 import { path } from './emulator.mjs';
 import { origin, signIn, saved, open, network, screenshot, serverTimeout, focusUndo, pauseClock } from './browser.mjs';
-import { mountFamilyScene } from './motion-scene.mjs';
+import { fillFamilyNotes, mountFamilyScene } from './motion-scene.mjs';
 
 async function field(db, id, key, value) {
   await expect.poll(async () => (await db.doc(path(id)).get()).data()?.[key], { timeout: serverTimeout }).toEqual(value);
@@ -129,11 +129,10 @@ test('family waits 30 seconds, uses only bottom whitespace, follows in threes an
     await page.clock.runFor(120000); await expect(family).toHaveCount(0); // One crossing per opening, even after cancellation.
     await page.evaluate(() => window.mountFamilyCheck(16));
     await page.clock.runFor(30001); await expect(family).toHaveCount(0);
-    await page.evaluate(() => window.fillFamilyNotes(1));
+    await fillFamilyNotes(page, 1);
     await page.clock.runFor(10000); await expect(family).toBeVisible();
-    await page.evaluate(() => window.fillFamilyNotes(16));
-    // ResizeObserver delivery uses real rendering turns even with the clock paused.
-    await expect.poll(async () => { await page.clock.runFor(50); return family.count(); }).toBe(0);
+    await fillFamilyNotes(page, 16);
+    await expect(family).toHaveCount(0);
     for (const guard of ['typing', 'dialog', 'off', 'hidden', 'reduced']) {
       await page.evaluate(() => window.mountFamilyCheck(1));
       if (guard === 'typing') await page.getByLabel('Search notes').focus();

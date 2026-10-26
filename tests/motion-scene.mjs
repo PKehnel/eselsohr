@@ -1,4 +1,14 @@
 // The actual HomeView and motion engine, with in-memory cards and no notebook writes.
+export async function fillFamilyNotes(page, count) {
+  // Clock ticks do not flush native ResizeObserver delivery. Let each size reach
+  // the renderer so 16 -> 1 -> 16 cannot coalesce into an unchanged observed size.
+  await page.evaluate(amount => new Promise(resolve => {
+    const observer = new ResizeObserver(() => { observer.disconnect(); resolve(); });
+    observer.observe(document.querySelector('.note-list'));
+    window.fillFamilyNotes(amount);
+  }), count);
+}
+
 export async function mountFamilyScene(page) {
   await page.evaluate(async () => {
     const { DonkeyMotion } = await import('/src/views/donkey-motion.ts');

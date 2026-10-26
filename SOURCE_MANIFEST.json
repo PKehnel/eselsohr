@@ -368,8 +368,8 @@
     },
     {
       "path": "tests/motion-scene.mjs",
-      "bytes": 1351,
-      "sha256": "462c2d0e20b6b8c3edf5ac9134bc31a2c6a76f2c5e06b2112436ef77f073d5bf"
+      "bytes": 1826,
+      "sha256": "1794f9f7b523d2aa9a6682c8f89ef505b051399a89dd3206b25d0e91db8e446b"
     },
     {
       "path": "tests/note-cards.mjs",
@@ -383,8 +383,8 @@
     },
     {
       "path": "tests/presentation.mjs",
-      "bytes": 25594,
-      "sha256": "8b0dec988f4624ee6ee4a6c81d18dee80b3c232b5353ffa288151e1729f454bd"
+      "bytes": 25423,
+      "sha256": "d05f7bf14632c94a1b6c1c911b5ed065bdb4ef5ea309c3b8c6f4bb61fd25cf3c"
     },
     {
       "path": "tests/profile-startup.mjs",
