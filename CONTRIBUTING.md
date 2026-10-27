@@ -4,6 +4,12 @@ Keep changes small and explain the user-visible problem. Run the checks in
 [Testing](docs/TESTING.md) that exercise the affected behavior. Use synthetic
 accounts and notes; never attach real member details, credentials or browser traces.
 
+Submit changes through a pull request. `main` requires an up-to-date branch,
+passing `app` and `secrets` checks, and resolved review conversations, including
+for administrators. A second reviewer's approval is not required. Force-pushes
+and deletion of `main` are blocked. Report sensitive security findings through
+the private channel in [Security](SECURITY.md).
+
 Preserve private-first creation, creator-only sharing controls, stable stored
 IDs, legacy note paths and unsent drafts. Saved requires server acknowledgement.
 Changes to queries, the schema or the worker need offline and upgrade checks.

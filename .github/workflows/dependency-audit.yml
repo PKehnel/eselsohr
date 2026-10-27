@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       exercise_issue:
-        description: Verify private issue creation, updating, closing and reopening with a clearly synthetic test
+        description: Verify public issue creation, updating, closing and reopening with a clearly synthetic test
         type: boolean
         default: false
   push:
@@ -59,7 +59,7 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
-      - name: Update private security issue
+      - name: Update public security issue
         run: node tools/security-issue.mjs
         env:
           GH_TOKEN: ${{ github.token }}
