@@ -4,19 +4,15 @@ A small shared notebook with text notes, nested checklists and an offline app
 shell. New notes are private; their creator can share with selected members or
 everyone in the notebook. Built with TypeScript, Vite and Firebase.
 
-**100% AI-generated application code.** The app was built by AI under human
-direction. Third-party dependencies retain their own authorship and licenses.
-AI-generated code can contain mistakes; review and test it before relying on it.
+The app was built using Codex.
 
 ## Screenshots
 
-<p>
+<p align="center">
   <img src="docs/media/notebook.png" alt="Notebook with shared and private notes, search, and checklist previews" width="300">
+  &emsp;
   <img src="docs/media/checklist.png" alt="Shared weekend shopping checklist with nested rows and sharing controls" width="300">
 </p>
-
-The actual app running in Chrome at a mobile viewport, using local Firebase
-emulators. All notes and accounts shown are synthetic; no real user data is used.
 
 ## Architecture
 
