@@ -23,13 +23,13 @@
     },
     {
       "path": ".github/workflows/checks.yml",
-      "bytes": 2535,
-      "sha256": "acb86d84f207595bfca4a1e3297e3bf483349667ad63d276af88c91902f62c93"
+      "bytes": 2534,
+      "sha256": "8d01a27a91ac23c9b9a1dad0ad07fb49bae2410d38c3fc56828760606c444730"
     },
     {
       "path": ".github/workflows/dependency-audit.yml",
-      "bytes": 2764,
-      "sha256": "78e529f89f4074c4c66badbfd317849d1e257663efed516b527dacef163479b3"
+      "bytes": 2762,
+      "sha256": "fa5931fe184b29b53bcff26a870880633966d5a2e0bbb017c09b02dc8c0acc41"
     },
     {
       "path": ".gitignore",
@@ -43,8 +43,8 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "bytes": 1224,
-      "sha256": "acbba56c68e78ae74c4d709df7971e485a07594c091016cdf88ba8d5fa59c747"
+      "bytes": 1589,
+      "sha256": "938868f5cb47e0507bff9e5b4e1a88f0e893f1aa41b53aceecec2541aa73a47f"
     },
     {
       "path": "LICENSE",
@@ -73,8 +73,8 @@
     },
     {
       "path": "SECURITY.md",
-      "bytes": 4092,
-      "sha256": "983929ce697b08c1617c853affe3dc719a3d89375190ff39d2099bf6689c712c"
+      "bytes": 4609,
+      "sha256": "6e63e6387de7913bbaee61a0fe2dca50cb86a535800f2117542369c649de41f3"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -493,8 +493,8 @@
     },
     {
       "path": "tools/security-issue.mjs",
-      "bytes": 6291,
-      "sha256": "3289e3533a190cdccdacb24b41f1cc770ab600a057e2288af335507ca5543326"
+      "bytes": 6364,
+      "sha256": "7ccdd9c642b92d3f03a39d133004389e6035a55c43ce4c04d532bfbf4b675e7a"
     },
     {
       "path": "tools/seed-emulator.mjs",

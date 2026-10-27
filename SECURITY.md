@@ -1,10 +1,12 @@
 # Security
 
-This repository is private. Report suspected vulnerabilities through an existing
-private maintainer channel. GitHub's private vulnerability-reporting feature is
-only available for public repositories. Never put keys, real note content or
-member details in an issue, even here; automated issues contain check summaries
-and run links only.
+Report suspected vulnerabilities through GitHub's
+[private vulnerability reporting](https://github.com/PKehnel/eselsohr/security/advisories/new).
+Use that channel for sensitive details rather than a public issue.
+
+This repository's issues, Actions logs and retained artifacts are public.
+Automated issues contain check summaries and run links only. Never include
+keys, real note content or member details in issues, logs or artifacts.
 
 ## Access and credentials
 
@@ -20,7 +22,7 @@ The Dependency audit workflow scans the full locked npm graph, including
 development and transitive packages, every day at 07:23 UTC. It also runs on
 dependency/scanner changes and can be started manually. It fails on high or
 critical findings and on failed or incomplete scans. Every reported severity
-opens or updates one private dependency-security issue; scan failures also open
+opens or updates one public dependency-security issue; scan failures also open
 it. A clean scan closes it, and later findings reopen the same issue. Maintainer
 text outside the marked bot section and issue comments are preserved. JSON
 reports are retained as workflow artifacts for 30 days. Dependabot proposes npm and Actions updates
@@ -37,8 +39,11 @@ as if it were a clean result. There are no standing advisory exceptions.
 Free Dependabot alerts appear in the repository's Security tab. No email action
 or email service is configured. Personal notification preferences still govern
 GitHub's own Dependabot, Actions and issue emails; disable email/digests there
-if unwanted. The repository stays private on GitHub Free. Checks run normally;
-required protected-branch checks are unavailable on that plan.
+if unwanted. The repository is public on GitHub Free. `main` requires a pull
+request, an up-to-date branch, passing `app` and `secrets` checks from GitHub
+Actions, and resolved review conversations. These rules apply to administrators;
+force-pushes and branch deletion are blocked. No second reviewer's approval is
+required, so the sole maintainer can merge a passing pull request.
 
 Only trusted default-branch runs can write issues. Audit and scanner jobs retain
 read-only permissions; separate reporting jobs receive only contents-read and
@@ -53,9 +58,12 @@ closed and never simulates a real vulnerability. Verify the first scheduled run
 separately; successful manual runs do not establish hosted scheduling.
 
 The CI workflow also scans the current source files with pinned Gitleaks 8.30.1.
-Scanner failures open or update a separate private issue containing only a run
+Scanner failures open or update a separate public issue containing only a run
 link and review instructions; a passing scan closes it. Detected values never
-enter that issue. This scan runs after a push and does not block the push itself.
+enter that issue. The Gitleaks job is a required pull-request check. GitHub's
+native secret scanning and push protection are also enabled; push protection
+blocks supported detected secrets before they enter the repository. These
+checks do not detect every secret.
 `npm run scan:secrets` downloads and checksums the official Linux x64 binary.
 Other platforms can install that version and run `gitleaks dir --redact .`.
 Scan imported Git history separately before adding it; the initial publication

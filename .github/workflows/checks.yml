@@ -73,7 +73,7 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
-      - name: Update private secret-scan issue
+      - name: Update public secret-scan issue
         run: node tools/security-issue.mjs
         env:
           GH_TOKEN: ${{ github.token }}

@@ -90,7 +90,7 @@ async function main() {
   }
   const report = check === 'dependencies' ? dependencyMessage(result, counts) : {
     state: result === 'success' ? 'closed' : 'open',
-    text: result === 'success' ? 'The latest Gitleaks source scan passed.' : 'The secret scan failed or could not complete. Review its run privately. Do not paste detected tokens or secret values into this issue.',
+    text: result === 'success' ? 'The latest Gitleaks source scan passed.' : 'The secret scan failed or could not complete. Review the redacted scan report. Do not paste detected tokens or secret values into this public issue; use private vulnerability reporting for sensitive details.',
   };
   receipts.push(await syncSecurityIssue(api, check, report.state, `${report.text}\n\n[Latest check and retained reports](${runUrl}). This issue updates in place and closes after a clean check.`, runId));
   await mkdir('test-artifacts/security', { recursive: true });
