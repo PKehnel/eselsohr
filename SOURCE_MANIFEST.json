@@ -68,8 +68,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3190,
-      "sha256": "2056d2b8a9161fbce2ebf83d19e2f5d142926d17f1b9f8a692ea7edf764be36c"
+      "bytes": 6412,
+      "sha256": "18a472477056eb0d7c1c6a753b64692d178f8a8872913e2c8352020f5aac24e5"
     },
     {
       "path": "SECURITY.md",
@@ -83,8 +83,8 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "bytes": 5543,
-      "sha256": "fc7209e64a1da22141befa34ff6978270a058da1153c351bddef42353f98c98b"
+      "bytes": 5617,
+      "sha256": "33a0dd80ce54e4368d2bc1eb50b4771056ea4da50c3a29890226932e3ce33a8a"
     },
     {
       "path": "docs/ASSETS.json",
@@ -98,8 +98,8 @@
     },
     {
       "path": "docs/LICENSING.md",
-      "bytes": 3435,
-      "sha256": "2256a3ace463cf2ef2bebc81045b339e9e813d0de650a28135db26877c5cc4da"
+      "bytes": 3810,
+      "sha256": "7a7361fcb552b9f4b35d2ebc2c5dffcf9b0bfa17c028e23b16c306c55c05e70e"
     },
     {
       "path": "docs/SETUP.md",
@@ -110,6 +110,21 @@
       "path": "docs/TESTING.md",
       "bytes": 4528,
       "sha256": "b37d751e1b8b478b8fc65fae62ad905f04ae2ee3ab22f8a1aa0d52cc37123f74"
+    },
+    {
+      "path": "docs/media/architecture.svg",
+      "bytes": 4534,
+      "sha256": "4d1d3d0721fa12b7210652b7cd549d8de820b7d97cdde4ad456cf030e3d90eef"
+    },
+    {
+      "path": "docs/media/checklist.png",
+      "bytes": 74113,
+      "sha256": "0374ec21fc83d108d095e9015bfe794595f849f4bb9a8f18311a14f75eb16bd4"
+    },
+    {
+      "path": "docs/media/notebook.png",
+      "bytes": 160605,
+      "sha256": "ebb566defb4e5b206e8721e8a170159f55c1cae8567227d146c2c550b19e7401"
     },
     {
       "path": "firebase.json",

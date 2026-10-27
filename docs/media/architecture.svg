@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 664" role="img" aria-labelledby="title description">
+  <title id="title">Eselsohr architecture</title>
+  <desc id="description">Firebase Hosting delivers the static app to a browser or installed PWA. The app signs in with Firebase Authentication and accesses Firestore directly through Security Rules. On the device, localStorage journals drafts, IndexedDB caches notes and queued writes, and the service worker caches public files only. Development uses isolated local Auth and Firestore emulators.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#526957"/></marker>
+    <style>
+      text { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; fill: #26362b; }
+      .title { font-size: 26px; font-weight: 700; }
+      .heading { font-size: 19px; font-weight: 650; }
+      .body { font-size: 16px; }
+      .small { font-size: 14px; fill: #4c6052; }
+      .label { font-size: 14px; font-weight: 550; }
+      .arrow { fill: none; stroke: #526957; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1180" height="664" rx="16" fill="#f8faf7"/>
+  <text class="title" x="32" y="43">Eselsohr architecture</text>
+  <text class="body" x="32" y="72">Static app · direct Firebase connections · no application server</text>
+
+  <rect x="32" y="107" width="502" height="474" rx="14" fill="#e9efe7" stroke="#a9baa8"/>
+  <text class="heading" x="56" y="141">Browser / installed PWA</text>
+  <rect x="56" y="160" width="454" height="119" rx="10" fill="#fff" stroke="#b4c2b1"/>
+  <text class="heading" x="76" y="191">TypeScript app</text>
+  <text class="body" x="76" y="219">Views, sharing, save queues and account lifecycle</text>
+  <text class="small" x="76" y="247">Vite builds static HTML, JavaScript and CSS</text>
+  <path class="arrow" d="M283 280V311"/>
+  <text class="small" x="56" y="309">Device storage</text>
+
+  <rect x="56" y="325" width="454" height="65" rx="9" fill="#fff5dd" stroke="#d7c69b"/>
+  <text class="body" x="76" y="351" font-weight="650">localStorage · unsent drafts</text>
+  <text class="small" x="76" y="374">Per-writer journals protect edits before submission</text>
+  <rect x="56" y="402" width="454" height="65" rx="9" fill="#fff" stroke="#b4c2b1"/>
+  <text class="body" x="76" y="428" font-weight="650">Firestore IndexedDB · notes and queued writes</text>
+  <text class="small" x="76" y="451">Persistent cache coordinates multiple app windows</text>
+  <rect x="56" y="479" width="454" height="76" rx="9" fill="#fff" stroke="#b4c2b1"/>
+  <text class="body" x="76" y="506" font-weight="650">Service worker + CacheStorage · public files</text>
+  <text class="small" x="76" y="531">Offline app shell; no notes, Auth or Firestore data</text>
+
+  <rect x="807" y="107" width="341" height="474" rx="14" fill="#f1f3ee" stroke="#b5c0b2"/>
+  <text class="heading" x="831" y="141">Firebase</text>
+  <rect x="831" y="160" width="293" height="87" rx="10" fill="#fff" stroke="#b4c2b1"/>
+  <text class="heading" x="851" y="191">Hosting</text>
+  <text class="body" x="851" y="219">Static app and public assets</text>
+  <rect x="831" y="294" width="293" height="87" rx="10" fill="#fff" stroke="#b4c2b1"/>
+  <text class="heading" x="851" y="325">Authentication</text>
+  <text class="body" x="851" y="353">Email/password sessions</text>
+  <rect x="831" y="435" width="293" height="120" rx="10" fill="#fff" stroke="#b4c2b1"/>
+  <text class="heading" x="851" y="465">Firestore + Security Rules</text>
+  <text class="body" x="851" y="493">Members, notes, checklist rows</text>
+  <text class="small" x="851" y="521">Active membership + note access</text>
+
+  <path class="arrow" d="M830 204H535"/>
+  <text class="label" x="575" y="187">Public app files over HTTPS</text>
+  <path class="arrow" d="M534 235H774V338H830"/>
+  <text class="label" x="556" y="277">Sign in / session tokens</text>
+  <path class="arrow" d="M534 261H554V495H830"/>
+  <text class="label" x="576" y="438">Reads, writes and listeners</text>
+  <text class="small" x="576" y="462">Firebase client SDK</text>
+  <path class="arrow" d="M978 382V434" stroke-dasharray="5 5"/>
+  <text class="small" x="992" y="412">Identity</text>
+
+  <rect x="32" y="603" width="1116" height="40" rx="9" fill="#e9efe7"/>
+  <text class="body" x="52" y="629">Local development: Vite + demo Auth/Firestore emulators on loopback · synthetic accounts and notes</text>
+</svg>

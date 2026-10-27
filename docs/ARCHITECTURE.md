@@ -5,6 +5,8 @@ Hosting, Email/Password Authentication and Firestore using the modular SDK.
 There is no application server or laptop hosting requirement. `index.html`
 loads `src/main.ts`; terminal tools are never bundled into the app.
 
+![Browser, device storage and Firebase services](media/architecture.svg)
+
 ## Source map
 
 | Source | Responsibility |
