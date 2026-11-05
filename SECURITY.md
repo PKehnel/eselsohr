@@ -73,6 +73,13 @@ should start with fresh app-only history.
 
 The lockfile retains scoped compatibility/security overrides: Firebase Firestore's
 gRPC uses 1.14.6; Firebase CLI's Pub/Sub OpenTelemetry core uses 2.8.0; its gaxios
-6.x branch uses uuid 11.1.1. Review consumer compatibility and remove overrides
-when upstream resolves the affected versions. A lockfile audit is evidence for
-the graph at scan time, not a claim of complete application security.
+6.x branch uses uuid 11.1.1. Firebase CLI's glob consumers use 14.0.3, resolving
+[cancellation bypass](https://github.com/isaacs/node-glob/security/advisories/GHSA-3g3m-2fjr-6pw4)
+and the inherited [minimatch denial of service](https://github.com/isaacs/minimatch/security/advisories/GHSA-g3hv-75wg-m249).
+These two findings affect development tooling; the browser dependency graph is
+unchanged. Glob 14 requires a newer major than the CLI currently requests, so
+check its glob consumers, clean installation, emulator authorization and local
+build/delivery behavior when updating this override. The project uses Node 24.
+Review consumer compatibility and remove overrides when upstream resolves the
+affected versions. A lockfile audit is evidence for the graph at scan time,
+not a claim of complete application security.
