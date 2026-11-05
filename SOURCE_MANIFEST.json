@@ -73,8 +73,8 @@
     },
     {
       "path": "SECURITY.md",
-      "bytes": 4609,
-      "sha256": "6e63e6387de7913bbaee61a0fe2dca50cb86a535800f2117542369c649de41f3"
+      "bytes": 5201,
+      "sha256": "73f81503c929a42791a9662ffe0c35d02fd0e23bf7f9ec5ae76ead1f949e2437"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -93,8 +93,8 @@
     },
     {
       "path": "docs/DEPENDENCIES.json",
-      "bytes": 122711,
-      "sha256": "39af9c68382fb98f3b771c5f6d4a7e6e8040a1501211244816b1f60b1a12b6a8"
+      "bytes": 118350,
+      "sha256": "c57f1a3e4bd67a516d2c9a91fc4b7e7097a08a16d182582d32378b01198f6cac"
     },
     {
       "path": "docs/LICENSING.md",
@@ -108,8 +108,8 @@
     },
     {
       "path": "docs/TESTING.md",
-      "bytes": 4528,
-      "sha256": "b37d751e1b8b478b8fc65fae62ad905f04ae2ee3ab22f8a1aa0d52cc37123f74"
+      "bytes": 4849,
+      "sha256": "173ec24b8f58f2b4d08f490b3444ed0e7d9ff8ab4c4443d87889c31f0031a63b"
     },
     {
       "path": "docs/media/architecture.svg",
@@ -148,13 +148,13 @@
     },
     {
       "path": "package-lock.json",
-      "bytes": 388024,
-      "sha256": "4412d5c31840907624a81e22e7424c2c56327633366abadd0f26a1d6896ec875"
+      "bytes": 374320,
+      "sha256": "33684603a3acad297f93c61bf142bcf68150ab250a51e599c2f48f2ea0c56214"
     },
     {
       "path": "package.json",
-      "bytes": 1970,
-      "sha256": "3a81591b0036f9c7c5a278a26416dff7657481718807d40f8c0a8d025c0cb099"
+      "bytes": 1994,
+      "sha256": "ca1886d3fc6a16a1e9c9f0c6cfb65bf406ae6331141ee281b8d9ceaf690b4416"
     },
     {
       "path": "playwright.config.mjs",
@@ -352,6 +352,11 @@
       "sha256": "c35e76c390c6dc03e3462318d380cb07e52f4922935ae105b5f4eae237641858"
     },
     {
+      "path": "tests/cli-dependencies.test.mjs",
+      "bytes": 2616,
+      "sha256": "22aef6db69d594db25c8aa56f67dc3438699b3d7828360bca9c7110dbc54a818"
+    },
+    {
       "path": "tests/device-cache.test.mjs",
       "bytes": 5960,
       "sha256": "1c4111b60b3fa0f0057e560a558219b54ace8ea3ccc254198b65a92f57251be1"
@@ -378,8 +383,8 @@
     },
     {
       "path": "tests/guidelines.mjs",
-      "bytes": 19901,
-      "sha256": "d8ae4af030a284c3069adcf0292f516c6de21e6e098f42d68ab29f60d9df7a37"
+      "bytes": 20244,
+      "sha256": "150d8cca16ae2c3f19ad54ffab66d8d07b5784f27df9d25f64c54587a3d425d5"
     },
     {
       "path": "tests/motion-scene.mjs",

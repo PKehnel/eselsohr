@@ -270,7 +270,12 @@ test('long checklist text wraps fully at 100/200% text and phone/tablet widths; 
   await page.evaluate(() => { document.documentElement.style.fontSize = ''; });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole('button', { name: 'Back', exact: true }).click();
-  await page.keyboard.press('Tab'); await card().focus();
+  await expect(page.getByRole('heading', { name: 'Notes', exact: true, level: 1 })).toBeVisible();
+  // Back restores focus on the next frame; finish that before testing keyboard focus.
+  await page.evaluate(() => new Promise(requestAnimationFrame));
+  await page.locator(`[data-note-id="${id}"] .note-options`).focus();
+  await page.keyboard.press('Shift+Tab');
+  await expect(card()).toBeFocused();
   const focus = await card().evaluate(node => { const s = getComputedStyle(node); return { visible: node.matches(':focus-visible'), style: s.outlineStyle, width: parseFloat(s.outlineWidth), offset: parseFloat(s.outlineOffset) }; });
   assert.equal(focus.visible, true); assert.equal(focus.style, 'solid'); assert.ok(focus.width >= 2 && focus.offset < 0);
   await screenshot(page, 'guidelines-home-focus.png', { fullPage: true });

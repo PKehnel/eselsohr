@@ -812,44 +812,16 @@
     "optional": false
   },
   {
-    "path": "node_modules/@isaacs/cliui",
-    "version": "8.0.2",
-    "license": "ISC",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/@isaacs/cliui/node_modules/ansi-styles",
-    "version": "6.2.3",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/@isaacs/cliui/node_modules/emoji-regex",
-    "version": "9.2.2",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/@isaacs/cliui/node_modules/string-width",
-    "version": "5.1.2",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/@isaacs/cliui/node_modules/wrap-ansi",
-    "version": "8.1.0",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
     "path": "node_modules/@isaacs/fs-minipass",
     "version": "4.0.1",
     "license": "ISC",
+    "development": true,
+    "optional": false
+  },
+  {
+    "path": "node_modules/@isaacs/nonrecursive-glob-match",
+    "version": "1.1.0",
+    "license": "BlueOak-1.0.0",
     "development": true,
     "optional": false
   },
@@ -1055,13 +1027,6 @@
     "license": "MIT",
     "development": true,
     "optional": false
-  },
-  {
-    "path": "node_modules/@pkgjs/parseargs",
-    "version": "0.11.0",
-    "license": "MIT",
-    "development": true,
-    "optional": true
   },
   {
     "path": "node_modules/@pnpm/config.env-replace",
@@ -1540,13 +1505,6 @@
     "optional": false
   },
   {
-    "path": "node_modules/anymatch",
-    "version": "3.1.3",
-    "license": "ISC",
-    "development": true,
-    "optional": false
-  },
-  {
     "path": "node_modules/anynum",
     "version": "1.0.1",
     "license": "MIT",
@@ -1736,13 +1694,6 @@
     "optional": false
   },
   {
-    "path": "node_modules/binary-extensions",
-    "version": "2.3.0",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
     "path": "node_modules/bl",
     "version": "4.1.0",
     "license": "MIT",
@@ -1808,13 +1759,6 @@
   {
     "path": "node_modules/brace-expansion",
     "version": "1.1.21",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/braces",
-    "version": "3.0.3",
     "license": "MIT",
     "development": true,
     "optional": false
@@ -1898,7 +1842,7 @@
   },
   {
     "path": "node_modules/chokidar",
-    "version": "3.6.0",
+    "version": "4.0.3",
     "license": "MIT",
     "development": true,
     "optional": false
@@ -2401,13 +2345,6 @@
     "optional": false
   },
   {
-    "path": "node_modules/eastasianwidth",
-    "version": "0.2.0",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
     "path": "node_modules/ecdsa-sig-formatter",
     "version": "1.0.11",
     "license": "Apache-2.0",
@@ -2702,13 +2639,6 @@
     "optional": false
   },
   {
-    "path": "node_modules/fill-range",
-    "version": "7.1.1",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
     "path": "node_modules/finalhandler",
     "version": "1.3.2",
     "license": "MIT",
@@ -2731,7 +2661,7 @@
   },
   {
     "path": "node_modules/firebase-tools",
-    "version": "15.34.1",
+    "version": "15.34.2",
     "license": "MIT",
     "development": true,
     "optional": false
@@ -2782,13 +2712,6 @@
     "path": "node_modules/fn.name",
     "version": "1.1.0",
     "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/foreground-child",
-    "version": "3.3.1",
-    "license": "ISC",
     "development": true,
     "optional": false
   },
@@ -2915,15 +2838,8 @@
   },
   {
     "path": "node_modules/glob",
-    "version": "10.5.0",
-    "license": "ISC",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/glob-parent",
-    "version": "5.1.2",
-    "license": "ISC",
+    "version": "14.0.3",
+    "license": "BlueOak-1.0.0",
     "development": true,
     "optional": false
   },
@@ -2942,16 +2858,23 @@
     "optional": false
   },
   {
+    "path": "node_modules/glob/node_modules/balanced-match",
+    "version": "4.0.4",
+    "license": "MIT",
+    "development": true,
+    "optional": false
+  },
+  {
     "path": "node_modules/glob/node_modules/brace-expansion",
-    "version": "2.1.7",
+    "version": "5.0.12",
     "license": "MIT",
     "development": true,
     "optional": false
   },
   {
     "path": "node_modules/glob/node_modules/minimatch",
-    "version": "9.0.9",
-    "license": "ISC",
+    "version": "11.0.4",
+    "license": "BlueOak-1.0.0",
     "development": true,
     "optional": false
   },
@@ -3243,22 +3166,8 @@
     "optional": false
   },
   {
-    "path": "node_modules/is-binary-path",
-    "version": "2.1.0",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
     "path": "node_modules/is-ci",
     "version": "2.0.0",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/is-extglob",
-    "version": "2.1.1",
     "license": "MIT",
     "development": true,
     "optional": false
@@ -3268,13 +3177,6 @@
     "version": "3.0.0",
     "license": "MIT",
     "development": false,
-    "optional": false
-  },
-  {
-    "path": "node_modules/is-glob",
-    "version": "4.0.3",
-    "license": "MIT",
-    "development": true,
     "optional": false
   },
   {
@@ -3294,13 +3196,6 @@
   {
     "path": "node_modules/is-npm",
     "version": "5.0.0",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/is-number",
-    "version": "7.0.0",
     "license": "MIT",
     "development": true,
     "optional": false
@@ -3407,13 +3302,6 @@
     "path": "node_modules/isomorphic-fetch",
     "version": "3.0.0",
     "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/jackspeak",
-    "version": "3.4.3",
-    "license": "BlueOak-1.0.0",
     "development": true,
     "optional": false
   },
@@ -4197,13 +4085,6 @@
     "optional": false
   },
   {
-    "path": "node_modules/package-json-from-dist",
-    "version": "1.0.1",
-    "license": "BlueOak-1.0.0",
-    "development": true,
-    "optional": false
-  },
-  {
     "path": "node_modules/parse5",
     "version": "5.1.1",
     "license": "MIT",
@@ -4247,15 +4128,8 @@
   },
   {
     "path": "node_modules/path-scurry",
-    "version": "1.11.1",
+    "version": "3.0.0",
     "license": "BlueOak-1.0.0",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/path-scurry/node_modules/lru-cache",
-    "version": "10.4.3",
-    "license": "ISC",
     "development": true,
     "optional": false
   },
@@ -4340,13 +4214,6 @@
     "path": "node_modules/picocolors",
     "version": "1.1.1",
     "license": "ISC",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/picomatch",
-    "version": "2.3.2",
-    "license": "MIT",
     "development": true,
     "optional": false
   },
@@ -4590,7 +4457,7 @@
   },
   {
     "path": "node_modules/readdirp",
-    "version": "3.6.0",
+    "version": "4.1.2",
     "license": "MIT",
     "development": true,
     "optional": false
@@ -4918,27 +4785,6 @@
     "optional": false
   },
   {
-    "path": "node_modules/string-width-cjs",
-    "version": "4.2.3",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/string-width-cjs/node_modules/ansi-regex",
-    "version": "5.0.1",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/string-width-cjs/node_modules/strip-ansi",
-    "version": "6.0.1",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
     "path": "node_modules/string-width/node_modules/ansi-regex",
     "version": "5.0.1",
     "license": "MIT",
@@ -4950,27 +4796,6 @@
     "version": "6.0.1",
     "license": "MIT",
     "development": false,
-    "optional": false
-  },
-  {
-    "path": "node_modules/strip-ansi",
-    "version": "7.2.0",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/strip-ansi-cjs",
-    "version": "6.0.1",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/strip-ansi-cjs/node_modules/ansi-regex",
-    "version": "5.0.1",
-    "license": "MIT",
-    "development": true,
     "optional": false
   },
   {
@@ -5158,13 +4983,6 @@
   {
     "path": "node_modules/tmp",
     "version": "0.2.7",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/to-regex-range",
-    "version": "5.0.1",
     "license": "MIT",
     "development": true,
     "optional": false
@@ -5454,27 +5272,6 @@
   {
     "path": "node_modules/wrap-ansi",
     "version": "6.2.0",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/wrap-ansi-cjs",
-    "version": "7.0.0",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/wrap-ansi-cjs/node_modules/ansi-regex",
-    "version": "5.0.1",
-    "license": "MIT",
-    "development": true,
-    "optional": false
-  },
-  {
-    "path": "node_modules/wrap-ansi-cjs/node_modules/strip-ansi",
-    "version": "6.0.1",
     "license": "MIT",
     "development": true,
     "optional": false

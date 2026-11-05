@@ -18,6 +18,11 @@ First-time emulator downloads and browser installation need network access.
 | Dependency graph | `npm run audit:dependencies` |
 | Source secret scan | `npm run scan:secrets` |
 
+`npm test` also exercises the Firebase CLI's glob consumers: file discovery and
+exclusions, archive-helper expansion, controller loading and targeted temporary
+file cleanup. Keep these compatibility checks while the security override in
+[Security](../SECURITY.md#dependency-overrides) crosses the CLI's requested major.
+
 The acceptance command already includes tabs, sharing, typing and guidelines.
 Do not run them again without a reason. Related browser suites can share service
 startup: `node tools/test.mjs acceptance ui artwork`. Use `--grep`,
