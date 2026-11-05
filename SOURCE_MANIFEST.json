@@ -383,8 +383,8 @@
     },
     {
       "path": "tests/guidelines.mjs",
-      "bytes": 20145,
-      "sha256": "503cc7db2255fb4ae8256f4b9227f7632b7188ad14ec620abfed0a0d8a712912"
+      "bytes": 20244,
+      "sha256": "150d8cca16ae2c3f19ad54ffab66d8d07b5784f27df9d25f64c54587a3d425d5"
     },
     {
       "path": "tests/motion-scene.mjs",

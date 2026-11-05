@@ -270,6 +270,7 @@ test('long checklist text wraps fully at 100/200% text and phone/tablet widths; 
   await page.evaluate(() => { document.documentElement.style.fontSize = ''; });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Notes', exact: true, level: 1 })).toBeVisible();
   // Back restores focus on the next frame; finish that before testing keyboard focus.
   await page.evaluate(() => new Promise(requestAnimationFrame));
   await page.locator(`[data-note-id="${id}"] .note-options`).focus();
